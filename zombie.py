@@ -1,5 +1,14 @@
-#Also testing zombie
+import os
+import time
 
+pid = os.fork()
 
+if pid == 0:  # Child process
+    print(f"Child ({os.getpid()}): Working for 2 seconds...")
 
-#yeah
+    print(f"Child ({os.getpid()}) finished")
+else:  # Parent process
+    print(f"Parent ({os.getpid()}) started")
+    time.sleep(30)
+    print(f"Parent ({os.getpid()}) finished")
+
